@@ -1,4 +1,4 @@
-package pasal
+package com.pasal
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification

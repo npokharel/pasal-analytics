@@ -2,7 +2,7 @@
 
     <h1 class="page-header">Dashboard</h1>
 
-    <g:render template="/layouts/placeholders"/>
+    %{--<g:render template="/layouts/placeholders"/>--}%
 
     <h2 class="sub-header">Account Statement</h2>
     <div class="table-responsive">
@@ -30,7 +30,7 @@
                 </tr>
 
             </g:each>
-            %{--<g:paginate controller="data" action="list" total="${statementCount}" />--}%
+           %{-- <g:paginate controller="data" action="list" total="${statementCount}" />--}%
 
 
 
@@ -78,4 +78,5 @@
 
             </div>
     </div>
+
 </g:applyLayout>

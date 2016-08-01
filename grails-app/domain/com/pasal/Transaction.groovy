@@ -1,7 +1,9 @@
 package com.pasal
 
-class Transaction {
+import org.bson.types.ObjectId
 
+class Transaction {
+    ObjectId id
     Integer txnSerialNo
     Date txnDate
     String description
@@ -12,9 +14,10 @@ class Transaction {
     static constraints = {
     }
     static mapping  = {
-        table 'txn'
+        table 'import_com'
         version false
         id column: 'id'
 
     }
+    static mapWith = "mongo"
 }

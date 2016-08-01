@@ -1,4 +1,4 @@
-package pasal
+package com.pasal
 
 import grails.boot.GrailsApp
 import grails.boot.config.GrailsAutoConfiguration

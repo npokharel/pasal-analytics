@@ -4,12 +4,13 @@ import grails.gorm.DetachedCriteria
 import groovy.transform.ToString
 
 import org.apache.commons.lang.builder.HashCodeBuilder
+import org.bson.types.ObjectId
 
 @ToString(cache=true, includeNames=true, includePackage=false)
 class UserRole implements Serializable {
 
 	private static final long serialVersionUID = 1
-
+    ObjectId id
 	User user
 	Role role
 
@@ -67,7 +68,7 @@ class UserRole implements Serializable {
 		role validator: { Role r, UserRole ur ->
 			if (ur.user?.id) {
 				UserRole.withNewSession {
-					if (UserRole.exists(ur.user.id, r.id)) {
+					if (UserRole.findByUserAndRole(ur.user.id, r.id)) {
 						return ['userRole.exists']
 					}
 				}

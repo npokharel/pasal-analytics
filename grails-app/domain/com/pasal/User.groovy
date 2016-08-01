@@ -2,6 +2,7 @@ package com.pasal
 
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
+import org.bson.types.ObjectId
 
 @EqualsAndHashCode(includes='username')
 @ToString(includes='username', includeNames=true, includePackage=false)
@@ -10,7 +11,7 @@ class User implements Serializable {
 	private static final long serialVersionUID = 1
 
 	transient springSecurityService
-
+    ObjectId id
 	String username
 	String password
 	boolean enabled = true
