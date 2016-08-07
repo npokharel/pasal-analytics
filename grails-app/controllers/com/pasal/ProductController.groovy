@@ -4,22 +4,28 @@ import com.pasal.Product
 
 class ProductController {
 
+    def productService
+
     def index() {
-        render view: 'index', model: [caller:'index', page:'product']
+        params.offset = params.offset ?: 0
+        params.max = params.max ?: 10
+        def count= productService.count
+        render view: 'index', model: [caller:'index', page:'product', products : productService.getAllProducts(params),count:count ]
     }
 
     def create() {
-        /*println "Product new."
-        Product p = new Product()
-        p.name = params.product_name
-        p.price = params.product_price
-        p.save()
 
-        []*/
         println "params = $params"
         params.page = 'product'
         params.caller = 'create'
+
         respond new Product(params), model: [caller:'create', page:'product']
+    }
+
+    def newProduct() {
+        def instance = new Product(name: params.product_name, price: params.product_price)
+        instance.save()
+        redirect action:'index'
     }
 
     def demo () {

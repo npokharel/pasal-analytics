@@ -1,25 +1,3 @@
-%{--<div class="col-sm-3 col-md-2 sidebar" >
-    <ul class="nav nav-sidebar menu-content">
-
-        <li class=${caller.equals('dash')?"active":""}><g:link controller="dashBoard">Overview <span class="sr-only">(current)</span></g:link></li>
-        <li class=${caller.equals('report')?"active":""} ><a href="#">Reports</a></li>
-        <li class=${caller.equals('analytics')?"active":""}><a href="#">Analytics</a></li>
-        <li class=${caller.equals('export')?"active":""}><a href="#">Export</a></li>
-    </ul>
-    <ul class="nav nav-sidebar">
-        <li class="${caller.equals('product')?"active":""}"><g:link controller="product" action="index" title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Product Features">Products</g:link></li>
-        <li class="${caller.equals('bills')?"active":""}" title="Bills"><a href="" >Bills</a></li>
-        <li><a href="">Sales</a></li>
-        <li><a href="">Expenditures</a></li>
-        <li><a href="">Stock</a></li>
-        <li  data-toggle="collapse" data-target="#products" class="collapsed active">
-            <a href="#"><i class="fa fa-gift fa-lg"></i> UI Elements <span class="arrow"></span></a>
-        </li>
-    </ul>
-
-</div>--}%
-
-
 <div class="nav-side-menu">
     <div class="brand">Brand Logo</div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
@@ -37,7 +15,7 @@
                 <a href="#"><i class="fa fa-line-chart fa-lg"></i>Data Analytics <span class="arrow"></span></a>
             </li>
             <ul class="sub-menu collapse ${caller.equals('index')&& page.equals('data') ?"in":""}" id="analytics" aria-expanded="${caller.equals('index') && page.equals('data')}">
-                <li class="${page.equals('data')?"active":""}"><i class="fa fa-database fa-lg" ></i><g:link controller="data" action="index"> Data</g:link></li>
+                <g:link controller="data" action="index"><li class="${page.equals('data')?"active":""}"><i class="fa fa-database fa-lg" ></i> Data</li></g:link>
                 <li><i class="fa fa-arrow-circle-down fa-lg" ></i><a href="#"> Import </a></li>
                 <li><i class="fa fa-tv fa-lg" ></i><a href="#"> View</a></li>
                 <li><a href="#">Monthly</a></li>
@@ -55,18 +33,13 @@
                 <li>New Service 3</li>
             </ul>
 
-
-            %{--<li data-toggle="collapse" data-target="#product" class="${caller.equals('index')&& page.equals('product') ?"":"collapsed"}" id="products" aria-expanded="${caller.equals('index') && page.equals('product')}">
-                <a href="#"><i class="fa fa-product-hunt fa-lg"></i> Product <span class="arrow"></span></a>
-            </li>--}%
-
             <li  data-toggle="collapse" data-target="#product" class="${caller.equals('index')&& page.equals('product') ?"":"collapsed"} ${page.equals('product')?"active":""}" aria-expanded="${caller.equals('index') && page.equals('product')}">
                 <a href="#"><i class="fa fa-line-chart fa-lg"></i>Product<span class="arrow"></span></a>
             </li>
 
             <ul class="sub-menu collapse ${page.equals('product') ?"in":""}" id="product" aria-expanded="${caller.equals('index') && page.equals('product')}">
-                <li class="${caller.equals('index') && page.equals('product')?"active":""}"><i class="fa fa-database fa-lg" ></i><g:link controller="product" action="index"> List</g:link></li>
-                <li class="${page.equals('product') && caller.equals('create')?"active":""}"><i class="fa fa-arrow-circle-down fa-lg " ></i><g:link controller="product" action="create"> Create New </g:link></li>
+                <g:link controller="product" action="index"><li class="${caller.equals('index') && page.equals('product')?"active":""}"><i class="fa fa-database fa-lg" ></i> List</li></g:link>
+                <g:link controller="product" action="create"><li class="${page.equals('product') && caller.equals('create')?"active":""}"><i class="fa fa-arrow-circle-down fa-lg " ></i> Create New </li></g:link>
                 <li><i class="fa fa-arrow-circle-down fa-lg" ></i><a href="#"> ${caller} </a></li>
                 <li><i class="fa fa-arrow-circle-down fa-lg" ></i><a href="#"> ${page}</a></li>
             </ul>
