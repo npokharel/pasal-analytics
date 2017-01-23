@@ -2,9 +2,8 @@
 
     <h1 class="page-header">Dashboard</h1>
     <head>
-        <asset:javascript src="jquery-1.12.4.js"/>
-        <asset:javascript src="jquery.dataTables.min.js"/>
-        <asset:stylesheet href="jquery.dataTables.min.css"/>
+
+
     </head>
 
 
