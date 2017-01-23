@@ -7,26 +7,24 @@ class ProductController {
 
 
     def index() {
-        params.offset = params.offset ?: 0
-        params.max = params.max ?: 10
+
+
         def products = Product.findAll()
         def count= products.size()
-        //
-        render view: 'index', model: [caller:'index', page:'product', products : products,count:count ]
+
+        render view: 'index', model: [caller:'index', page:'product', products : products]
     }
 
     def create() {
 
-        println "params = $params"
         params.page = 'product'
         params.caller = 'create'
-
         respond new Product(params), model: [caller:'create', page:'product']
     }
 
     def newProduct() {
-        def instance = new Product(name: params.product_name, price: params.product_price)
-        instance.save()
+        def instance = new Product(name: params.'product-name', price: params.'product-price', description: params.'product-description')
+        instance.save(flush:true, failOnError: true)
         redirect action:'index'
     }
 

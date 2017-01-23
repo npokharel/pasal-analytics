@@ -1,9 +1,12 @@
+%{--
 <g:applyLayout name="main">
 
 
     <h1 class="page-header">Product List</h1>
 
-    %{--<h2 class="sub-header">Products List</h2>--}%
+    --}%
+%{--<h2 class="sub-header">Products List</h2>--}%%{--
+
     <div class="table-responsive">
         <table class="table table-bordered">
             <thead>
@@ -34,5 +37,11 @@
         </div>
     </div>
 
+
+</g:applyLayout>--}%
+
+<g:applyLayout name="page">
+
+    <g:render template="list"/>
 
 </g:applyLayout>

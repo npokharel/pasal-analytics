@@ -5,7 +5,11 @@ import org.bson.types.ObjectId
 class Product {
     ObjectId id
     String name
-    String price
+    Double price
+    String description
+
+    Date dateCreated
+    Date lastUpdated
     static constraints = {
     }
     static mapWith = "mongo"
