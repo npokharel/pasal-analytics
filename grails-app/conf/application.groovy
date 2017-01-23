@@ -8,6 +8,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         [pattern: '/error',          access: ['permitAll']],
         [pattern: '/index',          access: ['ROLE_ADMIN']],
         [pattern: '/data/**',        access: ['ROLE_ADMIN', 'ROLE_USER']],
+        [pattern: '/import/**',      access: ['ROLE_ADMIN']],
         [pattern: '/product/**',     access: ['ROLE_ADMIN']],
         [pattern: '/dashBoard/**',   access: ['ROLE_ADMIN','ROLE_USER']],
         [pattern: '/login/auth',     access: ['permitAll']],
@@ -29,4 +30,6 @@ grails.plugin.springsecurity.filterChain.chainMap = [
         [pattern: '/**/favicon.ico', filters: 'none'],
         [pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
+grails.plugin.springsecurity.adh.errorPage = null
+
 

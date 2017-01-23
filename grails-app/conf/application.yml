@@ -15,6 +15,9 @@ environments:
     development:
       mongodb:
         connectionString: 'mongodb://localhost:27017/pasal'
+        databaseName: 'pasal'
+        username: 'root'
+        password: 'nepal.12'
 
 
 ---

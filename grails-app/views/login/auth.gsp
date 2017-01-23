@@ -1,122 +1,118 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    %{--<link rel="icon" href="../../favicon.ico">--}%
 
-    <title>Enter your login details</title>
+    <title>Pasal Analytics! | </title>
 
-    <!-- Bootstrap core CSS -->
+    <!-- Bootstrap -->
+    <asset:stylesheet src="vendors/bootstrap.css"/>
 
-    <asset:stylesheet src="auth"/>
+    <!-- Font Awesome -->
+    <asset:stylesheet src="vendors/font-awesome.css"/>
 
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- NProgress -->
+    <asset:stylesheet src="vendors/nprogress.css"/>
 
-    <asset:stylesheet src="ie10"/>
-
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- Custom Theme Style -->
+    <asset:stylesheet src="vendors/custom.css"/>
+    <!-- Animate.css -->
+    %{--<link href="../vendors/animate.css/animate.min.css" rel="stylesheet">--}%
+    <asset:stylesheet src="vendors/animate.min.css"/>
 </head>
 
-<body>
+<body class="login">
+<div>
+    <a class="hiddenanchor" id="signup"></a>
+    <a class="hiddenanchor" id="signin"></a>
 
-%{--<div class="container">
+    <div class="login_wrapper">
+        <div class="animate form login_form">
+            <section class="login_content">
 
-    --}%%{--<form action='${postUrl ?: '/login/authenticate' method='POST' id='loginForm' class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="username" class="sr-only">User Name</label>
-        <input type="text"  name='j_username' id='username' class="form-control" placeholder="Username" required autofocus>
-        <label for="password" class="sr-only">Password</label>
-        <input type="password" name='j_password' id='password' class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" name='${rememberMeParameter}' id='remember_me' value="remember-me" <g:if test='${hasCookie}'>checked='checked'</g:if>> Remember me
-            </label>
-        </div>
-        --}%%{----}%%{--<button class="btn btn-lg btn-primary btn-block" type="submit" id="submit">Sign in</button>--}%%{----}%%{--
-        <input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
-    </form>--}%%{--
-
-    <form action="${postUrl ?: '/login/authenticate'}" method="POST" id="loginForm" class="form-signin" autocomplete="off">
-        <h2 class="form-signin-heading">Please sign in</h2>
-
-        <label for="username" class="sr-only">User Name</label>
-        <input type="text" class="form-control"  name="${usernameParameter ?: 'username'}" id="username" placeholder="Username" required autofocus/>
-
-        <label for="password" class="sr-only">Password</label>
-        <input type="password" class="form-control"  name="${passwordParameter ?: 'password'}" id="password" placeholder="Password" required/>
-
-
-        <p id="remember_me_holder">
-            <input type="checkbox" class="chk" name="${rememberMeParameter ?: 'remember-me'}" id="remember_me" <g:if test='${hasCookie}'>checked="checked"</g:if>/>
-            <label for="remember_me"><g:message code='springSecurity.login.remember.me.label'/></label>
-        </p>
-
-
-        <input type="submit" id="submit" value="${message(code: 'springSecurity.login.button')}"/>
-
-    </form>
-
-</div> <!-- /container -->
-
-
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<asset:javascript src="ie10"/>--}%
-
-%{--<script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>--}%
-<body>
-<div class="container">
-    <div class="row vertical-offset-100">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <div class="row-fluid user-row">
-                        <img src="${resource(file: 'logo_sm_2_mr_1.png', dir: 'images')}" class="img-responsive" alt="Pasal Login"/>
+                <form action="${postUrl ?: '/login/authenticate'}" accept-charset="UTF-8"  method='POST' id='loginForm' role="form" class="form-signin">
+                    <h1>Login Form</h1>
+                    <g:message code="${flash.message}" args="${flash.args}" default="${flash.message}"/>
+                    <div>
+                        %{--<input type="text" class="form-control" placeholder="Username" required="" />--}%
+                        <input type="text" class="form-control"  name="${usernameParameter ?: 'username'}" id="username" placeholder="Username" required autofocus/>
                     </div>
-                </div>
-                <div class="panel-body">
-                    <form action="${postUrl ?: '/login/authenticate'}" accept-charset="UTF-8"  method='POST' id='loginForm' role="form" class="form-signin">
-                        <fieldset>
-                            %{--<label class="panel-login">
-                                <div class="login_result"></div>
-                            </label>
-                            <input class="form-control" placeholder="Username" id="username" type="text">
-                            <input class="form-control" placeholder="Password" id="password" type="password">
-                            <br></br>
-                            <input class="btn btn-lg btn-success btn-block" type="submit" id="login" value="Login »">--}%
+                    <div>
+                        %{--<input type="password" class="form-control" placeholder="Password" required="" />--}%
+                        <input type="password" class="form-control"  name="${passwordParameter ?: 'password'}" id="password" placeholder="Password" required/>
+                    </div>
 
-                            <label for="username" class="sr-only">User Name</label>
-                            <input type="text" class="form-control"  name="${usernameParameter ?: 'username'}" id="username" placeholder="Username" required autofocus/>
+                    <div class="checkbox" align="left">
+                        <label>
+                            <input type="checkbox" name="${rememberMeParameter ?: 'remember-me'}" id="remember_me" value=""> Remember me
+                        </label>
+                    </div>
 
-                            <label for="password" class="sr-only">Password</label>
-                            <input type="password" class="form-control"  name="${passwordParameter ?: 'password'}" id="password" placeholder="Password" required/>
+                    <div >
+                        <input  class="btn btn-default submit" type="submit" id="submit" value="${message(code: 'springSecurity.login.button')}"/>
+                        <a class="reset_pass" href="#">Lost your password?</a>
+                    </div>
 
+                    <div class="clearfix"></div>
 
-                            <p id="remember_me_holder">
-                                <input type="checkbox" class="chk" name="${rememberMeParameter ?: 'remember-me'}" id="remember_me" <g:if test='${hasCookie}'>checked="checked"</g:if>/>
-                                <label for="remember_me"><g:message code='springSecurity.login.remember.me.label'/></label>
-                            </p>
+                    <div class="separator">
+                        <p class="change_link">New to site?
+                            <a href="#signup" class="to_register"> Create Account </a>
+                        </p>
 
+                        <div class="clearfix"></div>
+                        <br />
 
-                            <input class="btn btn-lg btn-success btn-block" type="submit" id="submit" value="${message(code: 'springSecurity.login.button')}"/>
+                        <div>
+                            <h1><i class="fa fa-paw"></i> Pasal Analytics!</h1>
+                            <p>©2016 All Rights Reserved. Pasal Analytics! Privacy and Terms</p>
+                        </div>
+                    </div>
+                </form>
 
-                        </fieldset>
-                    </form>
-                </div>
-            </div>
+            </section>
+        </div>
+
+        <div id="register" class="animate form registration_form">
+            <section class="login_content">
+                <form>
+                    <h1>Create Account</h1>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Username" required="" />
+                    </div>
+                    <div>
+                        <input type="email" class="form-control" placeholder="Email" required="" />
+                    </div>
+                    <div>
+                        <input type="password" class="form-control" placeholder="Password" required="" />
+                    </div>
+                    <div>
+                        <a class="btn btn-default submit" href="index.html">Submit</a>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="separator">
+                        <p class="change_link">Already a member ?
+                            <a href="#signin" class="to_register"> Log in </a>
+                        </p>
+
+                        <div class="clearfix"></div>
+                        <br />
+
+                        <div>
+                            <h1><i class="fa fa-paw"></i> Pasal Analytics!</h1>
+                            <p>©2016 All Rights Reserved. Pasal Analytics! Privacy and Terms</p>
+                        </div>
+                    </div>
+                </form>
+            </section>
         </div>
     </div>
 </div>
-</body>
 </body>
 </html>

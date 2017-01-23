@@ -1,16 +1,41 @@
 <g:applyLayout name="main">
 
     <h1 class="page-header">Dashboard</h1>
+    <head>
+        <asset:javascript src="jquery-1.12.4.js"/>
+        <asset:javascript src="jquery.dataTables.min.js"/>
+        <asset:stylesheet href="jquery.dataTables.min.css"/>
+    </head>
 
-    %{--<g:render template="/layouts/placeholders"/>--}%
 
+%{--<g:render template="/layouts/placeholders"/>--}%
+
+    <script type="application/javascript">
+
+        $(document).ready(function() {
+
+            $('#example').DataTable( {
+                "ajax": "data/objects",
+                "order": [],
+                "columns": [
+                    { "data": "description" },
+                    { "data": "balance" },
+                    { "data": "checkNumber" },
+                    { "data": "credit" },
+                    { "data": "date" },
+                    { "data": "debit" }
+                ]
+            } );
+        } );
+
+    </script>
     <h2 class="sub-header">Account Statement</h2>
-    <div class="table-responsive">
-        <table class="table table-bordered">
+    %{--<div class="table-responsive" id="example">--}%
+        %{--<table class="table table-bordered">
             <thead>
             <tr>
 
-                <th>S.No</th>
+                <th>S.Id</th>
                 <th>Date</th>
                 <th>Description</th>
                 <th>Credit</th>
@@ -22,7 +47,7 @@
             <g:each in="${statement}" var="s">
                 <tr>
                     <td>${s.id}</td>
-                    <td>${s.txnDate}</td>
+                    <td>${s.txnValueDate.format('dd/MM/yyyy')}</td>
                     <td>${s.description}</td>
                     <td>${s.credit}</td>
                     <td>${s.debit}</td>
@@ -30,53 +55,36 @@
                 </tr>
 
             </g:each>
-           %{-- <g:paginate controller="data" action="list" total="${statementCount}" />--}%
+           </tbody>
+        </table>--}%
 
-
-
-            %{--<tr>
-                <td>1,001</td>
-                <td>Lorem</td>
-                <td>ipsum</td>
-                <td>dolor</td>
-                <td>sit</td>
-            </tr>
+        <table id="example" class="display compact" cellspacing="0" width="100%">
+            <thead>
             <tr>
-                <td>1,002</td>
-                <td>amet</td>
-                <td>consectetur</td>
-                <td>adipiscing</td>
-                <td>elit</td>
+                <th>Description</th>
+                <th>Balance</th>
+                <th>CheckNo</th>
+                <th>Credit</th>
+                <th>Date</th>
+                <th>Debit</th>
             </tr>
+            </thead>
+            <tfoot>
             <tr>
-                <td>1,003</td>
-                <td>Integer</td>
-                <td>nec</td>
-                <td>odio</td>
-                <td>Praesent</td>
+                <th>Description</th>
+                <th>Balance</th>
+                <th>CheckNo</th>
+                <th>Credit</th>
+                <th>Date</th>
+                <th>Debit</th>
             </tr>
-            <tr>
-                <td>1,004</td>
-                <td>dapibus</td>
-                <td>diam</td>
-                <td>Sed</td>
-                <td>nisi</td>
-            </tr>
-            <tr>
-                <td>1,005</td>
-                <td>Nulla</td>
-                <td>quis</td>
-                <td>sem</td>
-                <td>at</td>
-            </tr>--}%
-
-
-            </tbody>
+            </tfoot>
         </table>
-            <div class="pagination">
+
+            %{--<div class="pagination">
                 <g:paginate controller="data" action="index" total="${statementCount}" />
 
-            </div>
-    </div>
+            </div>--}%
+    %{--</div>--}%
 
 </g:applyLayout>

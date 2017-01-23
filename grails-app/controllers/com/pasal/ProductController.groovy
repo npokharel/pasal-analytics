@@ -1,16 +1,18 @@
 package com.pasal
 
-import com.pasal.Product
 
 class ProductController {
 
     def productService
 
+
     def index() {
         params.offset = params.offset ?: 0
         params.max = params.max ?: 10
-        def count= productService.count
-        render view: 'index', model: [caller:'index', page:'product', products : productService.getAllProducts(params),count:count ]
+        def products = Product.findAll()
+        def count= products.size()
+        //
+        render view: 'index', model: [caller:'index', page:'product', products : products,count:count ]
     }
 
     def create() {

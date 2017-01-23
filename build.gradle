@@ -57,6 +57,9 @@ dependencies {
     //compile 'org.grails.plugins:spring-security-core:3.0.4'
     compile 'org.grails.plugins:spring-security-core:3.1.1'
     compile "org.grails.plugins:mongodb"
+    //compile 'com.vaadinongrails:grails-vaadin-plugin:1.0.8'
+    compile "org.jsoup:jsoup:1.8.3"
+    compile 'org.grails.plugins:joda-time:2.0.0'
 
     console "org.grails:grails-console"
     profile "org.grails.profiles:web:3.1.6"

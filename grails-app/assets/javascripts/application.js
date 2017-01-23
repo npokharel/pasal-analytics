@@ -9,6 +9,8 @@
 //= require bootstrap
 //= require_tree .
 //= require_self
+//= require jquery-1.12.4
+//= require jquery.dataTables.min
 
 if (typeof jQuery !== 'undefined') {
     (function($) {
@@ -20,5 +22,5 @@ if (typeof jQuery !== 'undefined') {
     })(jQuery);
 }
 $(document).ready(function () {
-    $('a').tooltip();
+    //$('a').tooltip();
 });

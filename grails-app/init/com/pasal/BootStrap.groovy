@@ -1,4 +1,5 @@
-import com.pasal.*
+package com.pasal
+
 class BootStrap {
 
     def init = { servletContext ->

@@ -11,4 +11,5 @@
 *= require font-awesome
 *= require footer
 *= require navbar
++= require jquery.dataTables.min
 */
