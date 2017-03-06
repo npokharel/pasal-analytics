@@ -35,3 +35,11 @@
 # idea files
 .idea/*
 .idea
+
+# gradle files
+.gradle/*
+.gradle
+
+# build files
+/build
+
