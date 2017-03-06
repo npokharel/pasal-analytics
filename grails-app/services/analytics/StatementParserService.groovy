@@ -16,7 +16,7 @@ class StatementParserService {
     public static void parseStatement() {
 
         //File input = new File ("/home/niraj/workspace/baTests/src/test/resources/statement.html")
-        File input = new File ("/home/niraj/Desktop/xcend/pasal/Jan_Statement.html")
+        File input = new File ("/home/niraj/Desktop/xcend/pasal/Statement.html")
         Document docc = Jsoup.parse(input, "UTF-8", "http://nibl.com.np/")
         int count = 0
         for (Element table : docc.select("table")){
