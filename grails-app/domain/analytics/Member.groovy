@@ -5,7 +5,7 @@ import org.bson.types.ObjectId
 class Member {
     ObjectId id
 
-    Double number
+    String memberId
     String gender
     String nameSet
     String title
@@ -53,7 +53,7 @@ class Member {
 
 
     static constraints = {
-        number nullable: true, blank : true
+        memberId nullable: true, blank : true
         gender nullable: true, blank : true
         nameSet nullable: true, blank : true
         title nullable: true, blank : true
