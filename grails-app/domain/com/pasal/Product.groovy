@@ -14,4 +14,8 @@ class Product {
     }
     static mapWith = "mongo"
 
+    static def toList() {
+        return list()
+    }
+
 }

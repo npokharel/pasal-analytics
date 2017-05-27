@@ -22,8 +22,8 @@
 
             <li><a><i class="fa fa-money"></i> Bill <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="${createLink(controller: 'product' )}">List</a></li>
-                    <li><a href="${createLink (controller: 'product', action:'create')}">New Bill</a></li>
+                    <li><a href="${createLink(controller: 'bill')}">List</a></li>
+                    <li><a href="${createLink (controller: 'bill', action:'create')}">New Bill</a></li>
                     %{--<li><a href="#">Form Validation</a></li>
                     <li><a href="#">Form Wizard</a></li>
                     <li><a href="#">Form Upload</a></li>
