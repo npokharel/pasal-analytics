@@ -1,3 +1,27 @@
+%{--<script type="javascript">
+    $(document).ready(function() {
+        alert('okay');
+    });
+</script>--}%
+<g:javascript>
+    $(document).ready(function() {
+        //alert('okay');
+    });
+
+    function updatePrice(productId){
+        console.log(productId);
+        $.ajax({
+            type :'GET',
+            url : "getProductPrice",
+            data : { id : productId},
+            success: function (data) {
+                console.log(data);
+                $("#product-price").val(data);
+                //$("#product-price") = true;
+            }
+        });
+    }
+</g:javascript>
 <%@ page import="com.pasal.Product" %>
 <div class="page-title">
     <div class="title_left">
@@ -43,7 +67,7 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             %{--<input type="text" id="product-name" name="product-name" required="required" class="form-control col-md-7 col-xs-12">--}%
                             %{--<g:select name="productId" from="${Product.findAll()}" value="id" optionKey="id" />--}%
-                            <g:select name="owner" from="${products}" optionValue="${{'${it.name} ${it.name}'}}" noSelection="['null':'Nobody ...']" optionKey="id" value="${bill?.id}" />
+                            <g:select class="select2_single form-control" name="product-name" from="${products}" optionValue="${it}" noSelection="['null':'Select Product ...']" optionKey="id" value="${bill?.id}"  onChange="updatePrice(this.value);" />
 
                         </div>
                     </div>
@@ -51,7 +75,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="product-price">Product Price<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="number" step="any" id="product-price" name="product-price" required="required" class="form-control col-md-7 col-xs-12">
+                            <input type="number" step="any" id="product-price" name="product-price" disabled class="form-control col-md-7 col-xs-12">
                         </div>
                     </div>
                     <div class="form-group">
@@ -75,25 +99,4 @@
     </div>
 </div>
 
-<script type="javascript">
-    $(document).ready(function() {
-        alert('okay');
-        $.listen('parsley:field:validate', function() {
-            validateFront();
-        });
-        $("#new-product-form .btn").on('click', function() {
-            $('#new-product-form').parsley().validate();
-            validateFront();
-        });
-        var validateFront = function() {
-            if (true === $('#new-product-form').parsley().isValid()) {
-                $('.bs-callout-info').removeClass('hidden');
-                $('.bs-callout-warning').addClass('hidden');
-            } else {
-                $('.bs-callout-info').addClass('hidden');
-                $('.bs-callout-warning').removeClass('hidden');
-            }
-        };
-    });
 
-</script>

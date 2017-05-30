@@ -18,4 +18,8 @@ class Product {
         return list()
     }
 
+    String toString() {
+        return name
+    }
+
 }

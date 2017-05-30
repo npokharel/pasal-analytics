@@ -13,10 +13,14 @@ class BillController {
     def create() {
 
         def products = Product.findAll()
-        println "products = $products"
         params.page = 'bill'
         params.caller = 'create'
         respond new Bill(params), model: [caller:'create', page:'bill', products:products]
 
+    }
+
+    def getProductPrice() {
+        Product product = Product.findById(params?.id)
+        render product?.price
     }
 }
