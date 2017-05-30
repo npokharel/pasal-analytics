@@ -26,7 +26,7 @@ class DashBoardController {
         def topExpenses = reportService.topFiveExpenses()
         def topExpensesName = reportService.topFiveExpensesList()
 
-        def maxPie = topExpenses.data[0].value
+        def maxPie = topExpenses.data[0]?.value ?: 5
 
         [statement: Statement.list(), xData : rows, xCredits : credits, xDebits: debits, maxCredits: credits.max(), maxDebits:debits.max(),
             jsonMap : topExpenses.data as JSON, maxPie : maxPie, topExpensesNameMap : topExpensesName.data as JSON
