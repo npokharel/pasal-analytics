@@ -70,6 +70,7 @@
                             </td>
                             <td>
                                 <b><a>${p?.description}</a></b>
+                                <br/> <small>Updated ${p.lastUpdated?.format("MM.dd.yyyy")}</small>
                             </td>
                             <td>
                                 <b><a>${p?.price}</a></b> NRS

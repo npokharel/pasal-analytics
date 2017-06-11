@@ -5,11 +5,13 @@ class Bill {
 
     Timestamp dateCreated
     Timestamp lastUpdated
-    static hasMany = [products : Product]
+    Product product
+    Double quantity
     static constraints = {
     }
 
-    def amount = {
-        products.price.sum()
+    Double getAmount () {
+        Double result = product.price * quantity
+        return result
     }
 }

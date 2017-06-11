@@ -5,10 +5,10 @@ import grails.converters.JSON
 class BillController {
 
     def index() {
-        def bills = Bill.findAll()
-        def count = bills?.size()
+        def invoices = Invoice.findAll()
+        def count = invoices?.size()
 
-        render view: 'index', model: [caller:'index', page:'bill', bills : bills]
+        render view: 'index', model: [caller:'index', page:'bill', invoices : invoices]
     }
 
 
@@ -35,8 +35,20 @@ class BillController {
                 'description' : product?.description
 
         ]
+
         render json as JSON
-        //println "product = " + product as JSON
-        //render contentType: 'text/json',[{id:product.id, name : product?.name , description: product?.description}]'
+    }
+
+    def newBill( ) {
+        Invoice invoice = new Invoice()
+
+        for (int i =0; i < params.pids.size(); i++) {
+            Bill bill = new Bill ( product: Product.findById(params.pids[i]), quantity: params.qty[i] )
+            invoice.addToBills(bill)
+        }
+
+        invoice.save(flush:true, failOnError:true)
+        flash.message = "Invoice with id ${invoice.id} created !"
+        redirect  action:'index'
     }
 }

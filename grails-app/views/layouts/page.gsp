@@ -21,8 +21,14 @@
     <!-- Custom Theme Style -->
     <asset:stylesheet src="vendors/custom.css"/>
 
+    <!-- Pnotify -->
+    <asset:stylesheet src="vendors/pnotify/pnotify.css"/>
+
     <!-- jQuery -->
     <asset:javascript src="vendors/jquery.min.js"/>
+
+    <!-- application common js -->
+    <asset:javascript src="vendors/pasal.js"/>
 
     <g:layoutHead/>
 </head>
@@ -46,7 +52,7 @@
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
-                        <h2>Niraj Pokharel</h2>
+                        <h2>Pasal User</h2>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -80,16 +86,22 @@
         <g:render template="/layouts/page/footer"/>
         <!-- /footer content -->
 
-</div>
+    </div>
 
 
-<!-- Bootstrap -->
-<asset:javascript src="vendors/bootstrap.min.js"/>
-<!-- FastClick -->
-<asset:javascript src="vendors/fastclick.js"/>
-<!-- NProgress -->
-<asset:javascript src="vendors/nprogress.js"/>
-<!-- Custom Theme Scripts -->
-<asset:javascript src="vendors/custom.js"/>
+    <!-- Bootstrap -->
+    <asset:javascript src="vendors/bootstrap.min.js"/>
+    <!-- FastClick -->
+    <asset:javascript src="vendors/fastclick.js"/>
+    <!-- NProgress -->
+    <asset:javascript src="vendors/nprogress.js"/>
+
+    <!-- PNotify -->
+    <asset:javascript src="vendors/pnotify/pnotify.js"/>
+    <!-- Custom Theme Scripts -->
+    <asset:javascript src="vendors/custom.js"/>
+
+
+
 </body>
 </html>

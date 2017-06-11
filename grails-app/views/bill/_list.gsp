@@ -2,10 +2,22 @@
 <asset:javascript src="vendors/dataTables/dataTables.bootstrap.min.js"/>
 <asset:javascript src="vendors/dataTables/dataTables.buttons.min.js" />
 <asset:stylesheet src="vendors/dataTables/dataTables.bootstrap.min.css"/>
-
+%{--<asset:javascript src="vendors/custom.js"/>--}%
+%{--<g:javascript>
+    function notify() {
+        $(function(){
+            new PNotify({
+                title: 'Success !',
+                text: 'message',
+                type: 'success',
+                styling: 'bootstrap3'
+            });
+        });
+    }
+</g:javascript>--}%
 <div class="page-title">
     <div class="title_left">
-        <h3>Products <small>Listing </small></h3>
+        <h3>Bills <small>Listing </small></h3>
     </div>
 
     <div class="title_right">
@@ -20,12 +32,13 @@
     </div>
 </div>
 
+
 <div class="clearfix"></div>
 <div class="row">
     <div class="col-md-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Products</h2>
+                <h2>Invoices</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -45,42 +58,42 @@
             </div>
             <div class="x_content">
 
-                <p>Simple table with project listing with progress and editing options</p>
+                <p>Table with invoices listing with editing options</p>
 
                 <!-- start project list -->
                 <table id="datatable" class="table table-striped projects table-bordered">
                     <thead>
                     <tr>
                         <th style="width: 1%">#</th>
-                        <th style="width: 20%">Product Name</th>
-                        <th>Description</th>
-                        <th>Product Price</th>
+                        <th style="width: 20%">Invoice Id</th>
+                        <th></th>
+                        <th>Total Price</th>
                         <th>Status</th>
-                        <th style="width: 20%">#Edit</th>
+                        <th style="width: 20%">#Navigate</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <g:each in="${products}" var = "p">
+                    <g:each in="${invoices}" var = "i">
                         <tr>
                             <td>#</td>
                             <td>
-                                <b><a>${p.name}</a></b>
+                                <b><a>${i?.id}</a></b>
                                 <br />
-                                <small>Created ${p?.dateCreated?.format("MM.dd.yyyy")}</small>
+                                <small>Created ${i?.dateCreated?.format("MM.dd.yyyy")}</small>
                             </td>
                             <td>
                                 <b><a>${p?.description}</a></b>
                             </td>
                             <td>
-                                <b><a>${p?.price}</a></b> NRS
+                                <b><a>${i?.total}</a></b> NRS
                             </td>
                             <td>
-                                <button type="button" class="btn btn-success btn-xs">OnStock</button>
+                                <button type="button" class="btn btn-success btn-xs">Paid</button>
                             </td>
                             <td>
                                 <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-folder"></i> View </a>
-                                <a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
-                                <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>
+                                %{--<a href="#" class="btn btn-info btn-xs"><i class="fa fa-pencil"></i> Edit </a>
+                                <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Delete </a>--}%
                             </td>
                         </tr>
                     </g:each>
