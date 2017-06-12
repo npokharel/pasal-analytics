@@ -40,11 +40,23 @@ class BillController {
     }
 
     def newBill( ) {
+
         Invoice invoice = new Invoice()
 
-        for (int i =0; i < params.pids.size(); i++) {
-            Bill bill = new Bill ( product: Product.findById(params.pids[i]), quantity: params.qty[i] )
+        def x = params.find{ it.key == "pids" }
+        def count = 0
+        x.each{
+            count++
+        }
+
+        if(count == 1 ){
+            Bill bill = new Bill (product: Product.findById(params.pids), quantity : params.qty )
             invoice.addToBills(bill)
+        }else {
+            for (int i =0; i < params.pids.size(); i++) {
+                Bill bill = new Bill ( product: Product.findById(params.pids[i]), quantity: params.qty[i] )
+                invoice.addToBills(bill)
+            }
         }
 
         invoice.save(flush:true, failOnError:true)
