@@ -219,6 +219,7 @@
                     </tbody>
                 </table>
             </div>
+            <input type="submit" class="btn btn-success" value="Submit"/>
         </div>
     </g:form>
     <div class="row">
