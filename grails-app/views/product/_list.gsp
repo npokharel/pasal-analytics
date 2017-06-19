@@ -4,46 +4,47 @@
 <asset:stylesheet src="vendors/dataTables/dataTables.bootstrap.min.css"/>
 
 
-<g:set var="msg" value="${params?.id}"></g:set>
-<g:if test="${msg != null}">
-    <div class="x_panel">
-        <div class="x_content bs-example-popovers">
+%{--<g:set var="msg" value="${params?.id}"></g:set>--}%
+%{--<g:if test="${msg != null}">--}%
+    %{--<div class="x_panel">--}%
+        %{--<div class="x_content bs-example-popovers">--}%
 
-            <g:if test="${msg == 'msgadd'}">
-                <div class="alert alert-success alert-dismissible fade in" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                            aria-hidden="true">×</span>
-                    </button>
-                    <strong>Added.</strong> New Product has been added.
-                </div>
-            </g:if>
+            %{--<g:if test="${msg == 'msgadd'}">--}%
+                %{--<div class="alert alert-success alert-dismissible fade in" role="alert">--}%
+                    %{--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span--}%
+                            %{--aria-hidden="true">×</span>--}%
+                    %{--</button>--}%
+                    %{--<strong>Added.</strong> New Product has been added.--}%
+                %{--</div>--}%
+            %{--</g:if>--}%
 
-            <g:if test="${msg == 'msgedt'}">
-                <div class="alert alert-info alert-dismissible fade in" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                            aria-hidden="true">×</span>
-                    </button>
-                    <strong>Edited.</strong> Product has been edited.
-                </div>
-            </g:if>
+            %{--<g:if test="${msg == 'msgedt'}">--}%
+                %{--<div class="alert alert-info alert-dismissible fade in" role="alert">--}%
+                    %{--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span--}%
+                            %{--aria-hidden="true">×</span>--}%
+                    %{--</button>--}%
+                    %{--<strong>Edited.</strong> Product has been edited.--}%
+                %{--</div>--}%
+            %{--</g:if>--}%
 
-            <g:if test="${msg == 'msgdel'}">
-                <div class="alert alert-danger alert-dismissible fade in" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                            aria-hidden="true">×</span>
-                    </button>
-                    <strong>Deleted.</strong> Product has been deleted.
-                </div>
-            </g:if>
+            %{--<g:if test="${msg == 'msgdel'}">--}%
+                %{--<div class="alert alert-danger alert-dismissible fade in" role="alert">--}%
+                    %{--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span--}%
+                            %{--aria-hidden="true">×</span>--}%
+                    %{--</button>--}%
+                    %{--<strong>Deleted.</strong> Product has been deleted.--}%
+                %{--</div>--}%
+            %{--</g:if>--}%
 
-        </div>
-    </div>
-</g:if>
+        %{--</div>--}%
+    %{--</div>--}%
+%{--</g:if>--}%
 
 
 <div class="page-title">
     <div class="title_left">
         <h3>Products <small>Listing</small></h3>
+        <h4><a class="btn-success btn-sm" href="${createLink (controller: 'product', action:'create')}"><i class="fa fa-plus"></i> New Product</a></h4>
     </div>
 
     <div class="title_right">
@@ -126,7 +127,8 @@
                                         class="fa fa-folder"></i> View</g:link>
                                 <g:link action="edit" params="${[id: p.id]}" class="btn btn-info btn-xs"><i
                                         class="fa fa-pencil"></i> Edit</g:link>
-                                <g:link action="delete" params="${[id: p.id]}" class="btn btn-danger btn-xs"><i
+                                <g:link onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');"
+                                        action="delete" params="${[id: p.id]}" class="btn btn-danger btn-xs"><i
                                         class="fa fa-trash-o"></i> Delete</g:link>
                             </td>
                         </tr>

@@ -17,7 +17,7 @@ class Invoice {
 
     def getTotalAmount = {
         /*return product.price * quantity*/
-        def result = 0
+        def result = 0.0
         this.bills.each {
             result += it.amount
         }
@@ -26,8 +26,12 @@ class Invoice {
 
     def getTotal() {
         Double result = 0.0
-        this.bills.each {
-            result += it.amount
+
+        println "bills size" + this?.bills.size()
+        println "id" + this.id
+        this?.bills.each {
+            if(it.amount)
+                result += it?.amount
         }
         return result
     }

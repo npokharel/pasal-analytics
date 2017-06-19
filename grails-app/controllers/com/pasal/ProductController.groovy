@@ -31,7 +31,8 @@ class ProductController {
     def newProduct() {
         def addInstance = new Product(name: params.'product-name', price: Double.valueOf(params.'product-price'), description: params.'product-description')
         addInstance.save(flush: true, failOnError: true)
-        redirect (action: 'index', id:"msgadd")
+        flash.message = "New Product has been added !"
+        redirect (action: 'index')
     }
 
     def update() {
@@ -41,22 +42,23 @@ class ProductController {
         productInstance.description = params.'product-description'
 
         productInstance.save(flush: true, failOnError: true)
-        flash.message = "Product updated successfully!" //todo add flash impl on edit/update
-        redirect (action: 'index', id:"msgedt")
+        flash.message = "Product updated successfully!"
+        redirect (action: 'index')
     }
 
     def delete() {
         def product = Product.findById(params.id)
         product.delete()
-
-        redirect action: 'index'
+        flash.error = "Product has been deleted !"
+        redirect (action: 'index')
     }
 
-    def deleteProduct() {
-        def productDelete = Product.findById(params.'product-id')
-        productDelete.delete()
-        redirect (action: 'index', id:"msgdel")
-    }
+    //this is not used as product is directly delted
+//    def deleteProduct() {
+//        def productDelete = Product.findById(params.'product-id')
+//        productDelete.delete()
+//        redirect (action: 'index', id:"msgdel")
+//    }
 
     def demo() {
         def exp = '12/14/15'

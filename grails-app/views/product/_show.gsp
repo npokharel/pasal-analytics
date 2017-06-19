@@ -63,8 +63,8 @@
                                class="control-label col-md-3 col-sm-3 col-xs-12">Product Description</label>
 
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="product-description" class="form-control col-md-7 col-xs-12" type="text"
-                                   name="product-description" value="${product?.description}" readonly>
+                            <textarea id="product-description" class="form-control col-md-7 col-xs-12" rows="4"
+                                      name="product-description" readonly>${product?.description}</textarea>
                         </div>
                     </div>
 
@@ -76,7 +76,10 @@
                                     class="fa fa-home"></i> Back</g:link>
                             <g:link action="edit" params="${[id: product.id]}" class="btn btn-success"><i
                                     class="fa fa-pencil"></i> Edit</g:link>
-                            <g:link action="delete" params="${[id: product.id]}" class="btn btn-danger"><i
+                        %{--<g:link action="delete" params="${[id: product.id]}" class="btn btn-danger"><i--}%
+                        %{--class="fa fa-trash-o"></i> Delete</g:link>--}%
+                            <g:link onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');"
+                                    action="delete" params="${[id: product.id]}" class="btn btn-danger"><i
                                     class="fa fa-trash-o"></i> Delete</g:link>
                         </div>
                     </div>

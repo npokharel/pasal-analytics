@@ -69,7 +69,7 @@
                     <div class="form-group">
                         <label for="product-description" class="control-label col-md-3 col-sm-3 col-xs-12">Product Description</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input id="product-description" class="form-control col-md-7 col-xs-12" type="text" name="product-description">
+                            <textarea id="product-description" class="form-control col-md-7 col-xs-12" rows="4" name="product-description"></textarea>
                         </div>
                     </div>
 

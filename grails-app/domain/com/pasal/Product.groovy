@@ -7,10 +7,12 @@ class Product {
     String name
     Double price
     String description
+    boolean deleted = false
 
     Date dateCreated
     Date lastUpdated
     static constraints = {
+        description nullable: true, blank: true
     }
     static mapWith = "mongo"
 
@@ -21,5 +23,6 @@ class Product {
     String toString() {
         return name
     }
+
 
 }

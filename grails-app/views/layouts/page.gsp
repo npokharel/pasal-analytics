@@ -24,6 +24,9 @@
     <!-- Pnotify -->
     <asset:stylesheet src="vendors/pnotify/pnotify.css"/>
 
+    <!-- Pasal Custom -->
+    <asset:stylesheet src="vendors/pasal.css"/>
+
     <!-- jQuery -->
     <asset:javascript src="vendors/jquery.min.js"/>
 
@@ -33,7 +36,7 @@
     <g:layoutHead/>
 </head>
 
-<body class="nav-md menu_fixed" >
+<body class="nav-md menu_fixed" id="fullPageID">
 <div class="container body">
     <div class="main_container">
         <div class="col-md-3 left_col">
@@ -75,9 +78,12 @@
         <!-- /top navigation -->
 
         <!-- page content -->
-        <div class="right_col" role="main">
+        <div class="right_col" role="main" style="position: relative; height: auto; width: auto;">
             <div class="">
                 <g:layoutBody/>
+            </div>
+
+            <div class="" id="lockArea">
             </div>
 
             <!-- /page content -->

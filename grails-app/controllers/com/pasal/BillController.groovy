@@ -8,6 +8,8 @@ class BillController {
         def invoices = Invoice.findAll()
         def count = invoices?.size()
 
+        println "invoices = $invoices"
+
         render view: 'index', model: [caller:'index', page:'bill', invoices : invoices]
     }
 
