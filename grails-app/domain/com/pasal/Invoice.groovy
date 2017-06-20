@@ -27,8 +27,6 @@ class Invoice {
     def getTotal() {
         Double result = 0.0
 
-        println "bills size" + this?.bills.size()
-        println "id" + this.id
         this?.bills.each {
             if(it.amount)
                 result += it?.amount

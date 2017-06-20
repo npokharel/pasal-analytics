@@ -7,7 +7,7 @@ class ProductController {
 
 
     def index() {
-        def products = Product.findAll()
+        def products = productService.getActiveProducts()
         def count = products.size()
         render view: 'index', model: [caller: 'index', page: 'product', products: products]
     }
@@ -47,10 +47,17 @@ class ProductController {
     }
 
     def delete() {
-        def product = Product.findById(params.id)
-        product.delete()
-        flash.error = "Product has been deleted !"
-        redirect (action: 'index')
+        /*def product = Product.findById(params.id)
+        product.delete()*/
+        boolean result = productService.deleteProduct(params.id)
+        if(result){
+            flash.error = "Product has been deleted !"
+            redirect (action: 'index')
+        }else {
+            flash.message = "Product could not be deleted!"
+            redirect action: "index"
+        }
+
     }
 
     //this is not used as product is directly delted

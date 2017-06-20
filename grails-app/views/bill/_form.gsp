@@ -4,16 +4,12 @@
     });
 </script>--}%
 <g:javascript>
-
     var grandTotal = 0.0;
     $(document).ready(function() {
-
 
         $("#bills td.unit-total").each(function() {
             var sum = $(this).html();
         });
-
-
 
         $("#addItem").click(function(){
             //var task = $('#task').val();
