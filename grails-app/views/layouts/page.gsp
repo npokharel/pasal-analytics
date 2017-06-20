@@ -78,7 +78,7 @@
         <!-- /top navigation -->
 
         <!-- page content -->
-        <div class="right_col" role="main" style="position: relative; height: auto; width: auto;">
+        <div class="right_col" role="main" style="height: auto; width: auto;">
             <div class="">
                 <g:layoutBody/>
             </div>
