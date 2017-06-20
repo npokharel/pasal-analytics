@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat
 class ParseCategories {
 
     public void parseStatement() {
-        File input = new File ("/home/niraj/workspace/baTests/src/test/resources/statement.html")
+        File input = new File ("/home/niraj/Downloads/Statement.html")
         Document doc = Jsoup.parse(input, "UTF-8", "http://nibl.com.np/")
 
         for (Element table : doc.select ("table")){

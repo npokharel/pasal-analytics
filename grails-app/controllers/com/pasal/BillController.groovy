@@ -3,7 +3,7 @@ package com.pasal
 import grails.converters.JSON
 
 class BillController {
-
+    def productService
     def index() {
         def invoices = Invoice.findAll()
         def count = invoices?.size()
@@ -16,7 +16,7 @@ class BillController {
 
     def create() {
 
-        def products = Product.findAll()
+        def products = productService.getActiveProducts()
         params.page = 'bill'
         params.caller = 'create'
         respond new Bill(params), model: [caller:'create', page:'bill', products:products]
