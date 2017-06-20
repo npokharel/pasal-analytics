@@ -78,12 +78,11 @@
         <!-- /top navigation -->
 
         <!-- page content -->
-        <div class="right_col" role="main" style="height: auto; width: auto;">
+        <div class="right_col" role="main">
+            <div class="right_col hidden" id="lockArea">
+            </div>
             <div class="">
                 <g:layoutBody/>
-            </div>
-
-            <div class="" id="lockArea">
             </div>
 
             <!-- /page content -->
