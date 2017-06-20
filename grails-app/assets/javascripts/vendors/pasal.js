@@ -64,12 +64,14 @@ function myFullScreen() {
 function myLockFunction() {
     if($("#lockArea").is(".lockClass")){
         $("#lockArea").removeClass("lockClass");
+        $("#lockArea").addClass("hidden");
 
         $("#lockIcon").addClass("glyphicon-eye-close");
         $("#lockIcon").removeClass("glyphicon-eye-open");
     }
     else{
         $("#lockArea").addClass("lockClass");
+        $("#lockArea").removeClass("hidden");
 
         $("#lockIcon").addClass("glyphicon-eye-open");
         $("#lockIcon").removeClass("glyphicon-eye-close");
